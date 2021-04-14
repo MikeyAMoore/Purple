@@ -6,97 +6,321 @@
     <title>FAQ - PurpleAir.com</title>
     <link rel="stylesheet" href="faq.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="FAQ.js"></script>
+<style>
+/*toc { 
+  /*
+  float:left;
+  */
+
+</style>
   </head>
   <body>
 
-    <div id="toc_container">
-      <p class="toc_title">Contents</p>
-      <ul class="toc_list">
-        <li><a href="#registration">Registration</a>
-        <ul>
-          <li><a href="#First_Sub_Point_1">1.1 First Sub Point 1</a></li>
-          <li><a href="#First_Sub_Point_2">1.2 First Sub Point 2</a></li>
-        </ul>
-      </li>
-      <li><a href="#configuration">WiFi Configuration</a></li>
-      <li><a href="#Third_Point_Header">3 Third Point Header</a></li>
-      </ul>
+    <div class="toc" id="toc_container">
+      
     </div>
   
-<h1>FAQ</h1>
-<h2>About PurpleAir</h2>
-<h3>Q: How do PurpleAir sensors work, and what do they measure?</h3>
-<p>A: PurpleAir sensors measure airborne particulate matter (PM). Particulate matter describes solid particles suspended in air; this includes dust, smoke, and other organic and inorganic particles. PurpleAir sensors use laser particle counters to count the number of particles by particle sizes 0.3, 0.5, 1, 2.5, 5, and 10 &mu;m, and use the count data to calculate mass concentrations of PM1.0, PM2.5, and PM10.</p>
-<p>PurpleAir sensors use laser counters to measure particulate matter in real time. A laser counter uses a fan to draw a sample of air past a laser beam. Any particles in the air will reflect some light from the laser beam onto a detection plate, like dust shimmering in a sunbeam. The reflection is measured as a pulse by the detection plate, and the length of the pulse determines the size of the particle while the number of pulses determines the particle count. These particle counts are used to calculate the mass concentrations of PM1.0, PM2.5, and PM10 for standard indoor (CF_1) and outdoor particles.</p>
+    <h1>FAQ</h1>
+    <h2>About the PurpleAir Sensors and Map </h2>
+    <h3>Q: What do PurpleAir sensors measure?</h3>
+    <p>A: PurpleAir sensors measure particulate matter (PM). Particulate matter is used to describe a mixture of inhalable particles - solid and liquid - suspended in the air. This includes dust, smoke, and other organic and inorganic particles. PurpleAir sensors use laser counters to count the number of particles by size (0.3, 0.5, 1, 2.5, 5, and 10 μm), and use the data to calculate mass concentrations of PM1.0, PM2.5, and PM10.</p>
+    
+    <h3><b>Q: How do PurpleAir sensors work?</b></h3>
+    <p>A: PurpleAir sensors use PMSX003 laser counters to measure particulate matter in real time, with each laser counter alternating 5-second readings averaged over 120 seconds. Each laser counter uses a fan to draw a sample of air past a laser beam. The beam from these class <u>IIIa/3R</u> lasers will reflect light from any present particles onto a detection plate, like dust shimmering in a sunbeam. The reflection is measured as a pulse by the detection plate, and the length of the pulse determines the size of the particle while the number of pulses determines the particle count. These particle counts are used to calculate the mass concentrations of PM1.0, PM2.5, and PM10 for standard indoor (CF_1) and outdoor particles (ATM).</p>
+    
+    <h3>Q: What is the PurpleAir map?</h3>
+    <p>A: The PurpleAir map consists of a network of individually-owned PurpleAir sensors that have been registered as public, and whose data is free for all to view and download as they wish. As each sensor is connected to WiFi and uploads data to the <u>PurpleAir map</u> in real time, users can view sensor information by clicking on a map marker (colored dot) on the map. The map legend, found in the lower left corner of the map, enables users to customize the information they want to see on the PurpleAir map.</p>
+    
+    <h3>Q: Is <u>every</u> sensor on the map a PurpleAir sensor?</h3>
+    <p>A: Yes! PurpleAir’s network has grown to over 10,000 sensors, and each dot you see on the <u>PurpleAir map</u> represents a public PurpleAir sensor. (Not visible are the sensors that have been registered as private.)</p>
+    
+    <h3>Q: Where are PurpleAir sensors made?</h3>
+    <p>A: PurpleAir sensors are assembled by us at our warehouse in Draper, UT. You can read more about the technologies used in PurpleAir sensors <u>here</u>.</p>
+    
+    <h3><b>Q: What is the detection limit of the laser counter?</b></h3>
+    <p>A: The laser counter has a resolution of 1μg/m³, but this is not necessarily the detection limit. The manual for the laser counter can be found <u>here</u>.</p>
+    
+    <h3><b>Q: Do PurpleAir sensors measure pollutants like ozone, volatile organic compounds (VOCs), and other gases?</b></h3>
+    <p>A: At this time, PurpleAir sensors measure particulate matter only. However, we do have a limited number of Bosch BME680 sensors that measure temperature, humidity, pressure, and gas (VOC). We are still testing the gas sensor to determine if the values are valid, so please bear in mind that this is still in the preliminary phase of testing. To view more details about the BME680 and what it measures, have a look at <u>this</u> overview. If you’d like to purchase one, or to add the BME680 to your current PA-II sensor, please contact us <u>here</u>. </p>
+    
+    <h3><b>Q: How do PurpleAir sensors compare to regulatory sensors?</b></h3>
+    <p>A: PurpleAir sensors, when subjected to studies such as <u>this one</u> from the South Coast Air Quality Management District, have performed very well against regulatory sensors. There are two major differences between PurpleAir sensors and regulatory particulate matter sensors: the methods used to measure particulate matter and the averaging time of the data collected.</p>
+    
+    <p>PurpleAir sensors use laser particle counters that measure the particle count, before converting that count into a mass concentration. The purpose of this is to make it comparable to data reported by regulatory sensors. To do this, the laser counters must assume an average particle density. An average density must be used because, as mentioned above, not all particulate matter of a certain size has the same density. For instance, PM2.5 from wildfire smoke will have a different density than PM2.5 from dust blowing off a gravel pit. This means the mass concentration reported by a PurpleAir sensor varies depending on the specific composition of PM for a given area. This led to various groups creating conversion factors for PurpleAir data - to read more about conversion factors, click here. [LINK]</p>
+    
+    <p>Regulatory sensors, on the other hand, typically measure mass concentration of PM using methods that account for variation in particle density. This method is cost-prohibitive and requires extensive field infrastructure support, and reporting occurs on an hourly basis at best. Because of this, many cities have a limited number of these sensors (or none at all), and it isn’t feasible for the average citizen to own one.</p>
+    
+    <p>PurpleAir uses the AQI breakpoints established by the US EPA to convert real-time mass concentration of PM into the AQI published on the <u>PurpleAir map</u>. However, if you look at AirNow and their new <u>Fire and Smoke Map</u>, they display the AQI using their NowCast calculation; for PM, this is based on a moving 12-hour average, which is updated every hour.</p>
+    
+    <p>PurpleAir sensors report real-time data that is updated every 120 seconds. Since air quality can fluctuate greatly throughout the day, the real-time PurpleAir AQI reading may appear "high" when compared to 12-hour averaged AQI data. The EPA has also developed and recently shared with us their own conversion factor [LINK] for wildfire and woodsmoke conditions; the study they used to create this factor can be viewed <u>here</u>. (AirNow.gov’s Fire and Smoke Map has had this conversion factor applied to it.)</p>
+    
+    <h3><b>Q: What exactly is the AQI, and how does PurpleAir use it? </b></h3>
+    <p>A: The Air Quality Index, commonly referred to as the AQI, is a color-coded scale developed by the US EPA to easily convey to the public how clean or dirty the air is. The AQI ranges from 0 to 500, and is divided into six categories to report levels of five major pollutants, including particulate matter such as PM2.5 and PM10. Each category has its own color and corresponding public health concern described in the table below.</p>
+    
+    <p><b>Air Quality Index (AQI) for Particulate Matter</b></p><p><b>AQI Color</b></p><p><b>Level of Concern</b></p><p><b>Index Value</b></p><p><b>PM2.5  in µg/m³ (24-hour average)</b></p><p><b>PM10  in µg/m³ (24-hour average)</b></p><p><b>Description of Air Quality</b></p><p><b>Green</b></p><p><b>Good</b></p><p><b>0 - 50</b></p><p><b>0.0 - 12.0</b></p><p><b>0.0 - 54.0</b></p><p><b>Air quality is satisfactory, and air pollution poses little or no risk.</b></p><p><b>Yellow</b></p><p><b>Moderate</b></p><p><b>51 - 100</b></p><p><b>12.1 - 35.4</b></p><p><b>55.0 - 154.0</b></p><p><b>Air quality is acceptable. However, there may be a risk for some people, particularly those who are unusually sensitive to air pollution.</b></p><p><b>Orange</b></p><p><b>Unhealthy for Sensitive Groups</b></p><p><b>101 - 150</b></p><p><b>35.5 - 55.4</b></p><p><b>155.0 - 254.0</b></p><p><b>Members of sensitive groups may experience health effects. The general public is less likely to be affected.</b></p><p><b>Red</b></p><p><b>Unhealthy</b></p><p><b>151 - 200</b></p><p><b>55.5 - 150.4</b></p><p><b>255.0 - 354.0</b></p><p><b>Some members of the general public may experience health effects; members of sensitive groups may experience more serious health effects.</b></p><p><b>Purple</b></p><p><b>Very unhealthy</b></p><p><b>201 - 300</b></p><p><b>150.5 - 250.4</b></p><p><b>355.0 - 424.0</b></p><p><b>Health alert: The risk of health effects is increased for everyone.</b></p><p><b>Maroon</b></p><p><b>Hazardous</b></p><p><b>301 and higher</b></p><p><b>250.5 - 99999.9</b></p><p><b>425.0 - 99999.0</b></p><p><b>Health warning of emergency conditions: everyone is more likely to be affected.</b></p>
+    
+    <p>As mentioned in the previous question, the AQI for particulate matter is calculated from a 24-hour average: this is based on hourly averages of PM concentrations and is updated daily. The EPA also reports a real-time AQI called the NowCast. The NowCast scale for particulate matter is calculated using a weighted 12-hour average - this is based on hourly averages and rate of change of PM concentrations, and is updated hourly depending on data availability.</p>
+    <p>On the <u>PurpleAir map</u>, you have the option to view different averaging time periods in terms of the AQI by using the map legend. This allows users to see data for current conditions in the familiar terms of the AQI, while accessing a finer resolution of changes in air quality throughout the day. However, keep in mind that the corresponding public health concerns described by the AQI are for 24-hour averages of particulate matter concentrations. </p>
+    
+    <h3><b>Q: Have PurpleAir sensors been subjected to any official evaluations?</b></h3>
+    <p>A: The following organizations have conducted evaluations of the PA-II sensor: <u>South Coast Air Quality Management District</u>, <u>EPA</u>, <u>San Joaquin Valley Air Pollution Control District</u>, and <u>Atmospheric Environment</u>. <u>South Coast Air Quality Management District</u> has also evaluated the PA-I-Indoor sensor.</p>
+    
+    <h3><b>Q: How accurate are the temperature and humidity readings?</b></h3>
+    <p>A: The temperature and humidity shown are for the sensor itself, and not meant to reflect environmental readings. Heat generated by the WiFi module causes an increase in temperature and a decrease in humidity within the housing. We’ve found that a correction of 8°F correlates closely to the ambient temperature, while a 4% correction correlates closely to the ambient humidity. We have adjusted these values on the <u>PurpleAir map</u> to reflect this.  </p>
+    
+    <h3><b>Q: Are sensor readings affected by fog and vog?</b></h3>
+    <p>A: We’ve seen dense fog produce low readings, and in other cases it has produced high readings. Particles with moisture in their content may appear brighter/larger when read by the sensor’s laser counter. When the air is humid, this can cause readings to be elevated compared to federally regulated sensors. </p>
+    
+    <p>Vog is a form of air pollution that occurs when gases and particulates from a volcano react with oxygen, moisture, and sunlight. PurpleAir sensors measure the particulates in the air, and will report that data within vog incidents. </p>
+    
+    <h3><b>Q: Who uses PurpleAir data, and where is the data stored?</b></h3>
+    <p>A: PurpleAir sensors are used by a wide variety of individuals and groups, from government air districts, school districts, and universities to industrial and commercial organizations to home enthusiasts and concerned citizens. The <u>PurpleAir map</u> and its contents are free and open to all who are interested, and PurpleAir data is stored on Google Cloud.</p>
+    
+    <h3>Q: Can I download historical data from the PurpleAir map?</h3>
+    <p>A: Yes, you can easily download historical data from PurpleAir sensors. On the PurpleAir map, zoom in to the location of interest and click the downward facing arrow button in the bottom right corner of the map. This will open the PurpleAir Download page for all sensors within the map view you’ve chosen. </p>
+    
+    <p>After clicking the Download button, enter the desired date range in the Start Date and End Date fields. Select the checkboxes on the left side for the data channels you’d like to download (Channels A and/or B) and click Download Selected, or use the individual boxes on the right side to download only Primary and/or Secondary data for these channels. (More information about the specific data in each channel can be found <u>here</u>.) All downloaded data will be in csv format. Alternatively, you can go directly to the <u>Sensorlist page</u> to download the information. <b>Note: You will need to use a Chrome browser to download any data.</b></p>
+    
+    <h3><b>Q: Are sensor owners required to pay for data storage or access?</b></h3>
+    <p>A: There is no cost for data storage, and no ongoing subscription is required to use the <u>PurpleAir map</u> or access sensor data.</p>
+    
+    <h3><b>Q: How do the PurpleAir sensors differ, and can I mount them indoors OR outdoors</b><b>?</b></h3>
+    <p>A: As its name implies, the <u>PA-I-Indoor</u> sensor is intended for indoor use only. This device incorporates a full-color LED, which allows it to glow the color of the current air quality (green, yellow, orange, red, purple, and maroon). Designed to sit comfortably on a counter or tabletop, the PA-I-Indoor measures real-time PM2.5 concentrations. Built-in WiFi enables the sensor to transmit data to the <u>PurpleAir map</u>, where it is stored and made available to any smart device.</p>
+    
+    <p>The <u>PA-II</u> sensor can be used indoors or outdoors, and measures real-time PM2.5 concentrations for residential, commercial, or industrial use. Built-in WiFi enables the sensor to transmit data to the <u>PurpleAir map</u>, where it is stored and made available to any smart device.</p>
+    
+    <p>The <u>PA-II-SD</u> sensor can also be used indoors or outdoors, and measures real-time PM2.5 concentrations for residential, commercial, or industrial use. The PA-II-SD is identical to the PA-II, with the addition of a microSD card and real-time clock. Like the PA-II, only data collected while the PA-II-SD is connected to a WiFi network will be stored in the cloud. However, the SD version will log data to the internal microSD card with or without a WiFi connection, and all the data (while connected to power) will write to the microSD card. Currently, to read and analyze the data, you must remove the microSD card and plug it into a computer. In order to get any firmware updates, you will need to be able to connect the sensor to a WiFi network as well.</p>
+    
+    <p>The sensor housing on the PA-II and PA-II-SD is designed to protect the device from the elements while allowing air to flow freely past the two laser counters. These two sensors must be mounted in the vertical position, with the open side facing down. We recommend installing the sensor in a location high enough so that water splash or snow cannot get into the underside of the sensor. Find more tips on installation <u>here</u>.</p>
+    
+    <h3>Q: Which sensor should I choose: the PA-II or the PA-II-SD?</h3>
+    <p>A: The PA-II-SD is identical to the PA-II, with the addition of a microSD card and a real-time clock. The SD version works well for those looking to place their sensor in a remote location that receives little to no WiFi. Like the PA-II, only data collected while the PA-II-SD is connected to a WiFi network will be stored in the cloud. However, the SD version will log data to the internal microSD card with or without a WiFi connection, and all the data (while connected to power) will write to the microSD card. Currently, to read and analyze the data, you must remove the microSD card and plug it into a computer. In order to get any firmware updates, you will need to be able to connect the sensor to a WiFi network as well. If you plan to only use the sensor with a WiFi connection, and WiFi reliability in your desired sensor location is not a concern, the PA-II should suit your needs nicely.</p>
+    
+    <h3>Q: How many sensors should I install in my area?</h3>
+    <p>A: PurpleAir sensors only measure the particulate matter (PM) of the air pulled into the sensor (roughly a 2-inch by 2-inch area). This means you should think of data from a sensor as representing the PM at a particular point, not an entire area. The more points - or sensors - in an area, the better spatial resolution of PM will be in that area. Since air quality is a complex issue and unique to each location, it can be difficult to determine how many sensors an area needs or where to place them. To explore this on your own, you can search for areas of comparable size and desired coverage on the <u>PurpleAir map</u>, and get an idea of how many sensors you may need. Other things to consider are localized sources of air pollution, weather patterns (i.e. predominant wind directions and wind speed), and local points of interest such as hospitals, libraries, schools, parks, etc.</p>
+    
+    <h3><b>Q: What is the WiFi range of a PurpleAir sensor?</b></h3>
+    <p>A: The WiFi range is typically about 100 feet. This range can vary depending on the position of both your router and the sensor itself, along with everything that physically stands between the two. Factors such as temperature and humidity can also affect the WiFi range. Prior to mounting your sensor, using a smartphone to test your WiFi’s signal strength is one way to ensure your sensor will transmit data successfully. If you’re having trouble obtaining a signal, slightly adjusting your router’s antennae or altering your sensor’s position could help.</p>
+    
+    <h3><b>Q: Should I be concerned about security?</b></h3>
+    <p>A: System security is extremely important to us at PurpleAir, and not an issue we take lightly. As a security measure, there is no way to load firmware onto PurpleAir sensors over a local network; any updates must come from PurpleAir's own server. In addition to this safeguard, we’ve made it impossible to change any settings on the sensor with the exception of WiFi settings (SSID and password for the WiFi network). The firmware sent from our servers is signed to ensure integration as it passes through the network. </p>
+    
+    <p>For those concerned about security with IoT (Internet of Things) devices, we recommend connecting the sensor to its own SSID (WiFi network) or firewalling the sensor from the rest of your network. Regarding privacy: if you’d rather the map marker not be on your direct location, try placing the marker on the nearest intersection or in the middle of your street when registering the sensor.</p>
+    
+    <h3><b>Q: Can I transmit sensor data using a cell phone?</b></h3>
+    <p>A: The cellular signal of your phone or your cellular hotspot can be used to connect the sensor and send data.</p>
+    <p> </p>
+    <h3>Q: Can I use alternative power (solar and battery) to run a sensor remotely?</h3>
+    <p>A: We’ve heard of a number of individuals who are using solar to power their sensors. At this point we have not conducted in-house testing on PurpleAir sensors using solar power. However, it seems reasonable that a solar panel providing approximately 15W may be adequate to power a battery pack to run a PurpleAir sensor. How quickly that battery pack recharges is situationally dependent, and may require some experimenting on the user’s part to fit the seasonal sun conditions.</p>
+    <p> </p>
+    <h3><b>Q: How much power does a PurpleAir sensor draw, and how much </b><b>bandwidth/data does it use?</b></h3>
+    <p>A: PurpleAir sensors run on 5 volts and the current draw is 180mA. This means the power consumption of a sensor is about 1 watt. If running the sensor 24 hours per day, the daily consumption would be 0.024 kWh. We have experimented with a 20Ah battery pack, and found it was able to keep the sensor running for about four days. (Find more details about calculating energy consumption <u>here</u>.)</p>
+    
+    <p><img src="cid:Image_0.png" /></p>
+    
+    <p>The sensor sends roughly 8 bytes every two minutes, and may use up to 500mb per month depending on how it has been configured (whether you’ve chosen to send the data to any third parties such as Weather Underground, etc.).</p>
+    
+    <h3><b>Q: What type of power supply and plug do PurpleAir sensors use?</b></h3>
+    <p>A: The sensor’s power supply will work with an AC input of 100-240V, 50/60Hz, and 1.5A. However, it is only available with a Type A (2 pin USA style) plug. Some people choose to replace their plug with their local plug type. If you opt to use an adaptor instead, you can either use an indoor outlet or protect the adaptor from the elements with a weatherproof box, available at most hardware stores. Additional technical specifications can be found for the <u>PA-II</u>, <u>PA-II-SD</u>, and <u>PA-I-Indoor</u> under the Specs tab on each product’s page.</p>
+    
+    <h3><b>Q: How long does a PurpleAir sensor last?</b></h3>
+    <p>A: The life expectancy of a PurpleAir sensor is roughly two years, although some run much longer than that. Regarding the laser counters themselves, much like the cartridge in a printer, these have a lifespan and may need to be replaced in time.</p>
+    
+    <h3><b>Q: How should I store my sensor when not in use?</b></h3>
+    <p>A: If your sensor will not be connected to power or in use for a significant amount of time, we recommend storing it in a dry place inside a sealed container. This discourages the accumulation of dust, insects, and moisture - any of which could potentially affect the performance of the laser counters.</p>
+    
+    <h3>Q: What is PurpleAir’s return policy and warranty?</h3>
+    <p>Please see our return policy below, as well as our warranty <u>here</u>.</p>
+    
+    <p>30-Day Return Policy</p>
+    <p>We want our customers to be completely satisfied with their purchase from PurpleAir. If you are not satisfied with your purchase from PurpleAir for any reason and you are the original purchaser of the item from PurpleAir, you may return the item in its original condition within thirty (30) days of the ship date and receive a full refund. Shipping and handling is non-refundable on items returned under the 30-Day Return Policy, unless you receive a damaged item or the wrong item was sent. Refunds can only be credited to the original method of payment after the item(s) is returned to PurpleAir.</p>
+    
+    <p>How to Request a Refund</p>
+    <p>To request a refund, notify PurpleAir using our Contact Us page within 30 days of the ship date. In your message include the following; (1) order number, (2) Device ID of the sensor(s), and (3) a brief description of why you are requesting a refund.</p>
+    
+    <p>For returns made within the United States, PurpleAir will provide a Return Material Authorization (“RMA”) and a prepaid return shipping label.</p>
+    
+    <p>For international returns, you are responsible for paying for your own shipping costs. To return your item for a refund, please mail your item to:</p>
+    
+    <p>PurpleAir</p>
+    <p>110 WEST 13775 SOUTH</p>
+    <p>SUITE 4</p>
+    <p>Draper, UT 84020, United States</p>
+    
+    <h2>Managing your PurpleAir Sensor<b> </b><b> </b></h2>
+    <h3>REGISTRATION</h3>
+    
+    <h3><b>Q: What’s the difference between the Associated Email and the Owner’s Email?</b></h3>
+    <p>A: The Associated Email is the email address used by the buyer to complete the purchase of the sensor and is used as a reference. This email address is paired with the MAC address of all sensors bought in the same transaction, and must be used as the Associated Email to register the sensor. You may use any email address as the Owner's Email address. When registering an email will be sent to both email addresses with the registration details. </p>
+    
+    <h3>Q: What is the difference between a public and a private sensor?</h3>
+    <p>A: When registering a sensor, you have the choice of making it either public or private. If you choose to make your sensor public, anyone can view your sensor on the <u>PurpleAir map</u>. If you register your device as private, only you (and those with whom you share the link provided in the registration email) will be able to see your sensor on our map.</p>
+    
+    <h3><b>Q: How do I change/update the Owner’s Email?</b></h3>
+    <p>A: Currently, once a sensor is registered, only PurpleAir can update the Owner’s Email address. Please <u>contact us</u> and we’ll gladly update the information. </p>
+    
+    <h3>Q: I am not the original owner of the sensor - how do I register it?</h3>
+    <p>A: When registering your sensor, in the <b>Associated Email</b> field you’ll need to enter the email address of the person who purchased the sensor. In the <b>Owner’s Email</b> field, you’ll enter your <u>own</u> preferred email address. For more tips and instructions on registration, WiFi configuration, and installation of your sensor, feel free to click <u>here</u>.</p>
+    
+    <h3><b>Q: How do I change the name of my device, or update other registration details?</b></h3>
+    <p>A: To change/update registration details, you will need to resubmit the <u>registration</u> form. The most efficient way to do this is to find your original registration confirmation email from PurpleAir. Under the section titled <b>Useful Links</b>, you’ll see <b>Modify this registration</b>: by clicking the link that follows, you’ll be taken to PurpleAir’s registration page and your original registration information will be populated for you. From there, change any information that needs updating and click <b>Register</b>. If you can’t locate the original registration email, no problem - you’ll just manually reenter your registration information (including updates). Keep in mind, you’ll need to use the same Associated Email - as well as Owner’s Email - that was entered upon original registration.</p>
+    
+    <h3>Q: Does it matter whether I register my sensor as Inside vs Outside? Does it affect the sensor readings?</h3>
+    <p>A: Where a sensor is registered (inside vs. outside) can affect the readings produced by the sensor, so it’s important to register your device in the correct environment. For example, if a device is registered as “inside” but is in fact installed “outside”, it will report different readings than other outside sensors in the vicinity. This is because the formula used by the sensor to calculate PM readings is based on where the sensor has been registered.</p>
+    
+    <h3>Q: What if my sensor’s map marker is in the wrong location?</h3>
+    <p>A: To change the location you chose for your sensor, in your registration confirmation email, under the section titled <b>Useful Links</b>, you’ll see <b>Modify this registration</b>: by clicking the link that follows, you’ll be taken to PurpleAir’s registration page and your original registration information will be populated for you. From there, alter the map marker location information and click <b>Register</b>. When placing the red pin on the map, we recommend zooming in quite a bit; this should help you get the most accurate location. The marker location will be updated on the map once this form is submitted. If you can’t locate the original registration email, no problem - you’ll just manually reenter your registration information (including updates). Keep in mind, you’ll need to use the same Associated Email - as well as Owner’s Email - that was entered upon original registration.</p>
+    
+    <h3>Q: Can I configure my sensor to send data to a custom server?</h3>
+    <p>A: Yes! When registering a PurpleAir sensor, owners have the option to select two additional locations to send their PurpleAir sensor data. By default, PurpleAir sensors will send sensor data to Weather Underground's air quality report. </p>
+    
+    <h3><b>Q: Can I add data from non-PurpleAir sensors?</b></h3>
+    <p>A: The <u>PurpleAir map</u> does not support sensors outside of the PurpleAir network.</p>
+    
+    <h3><b>Q: Why haven’t I received a PurpleAir registration confirmation email?</b></h3>
+    <p>A: You may have mistyped the Owner’s Email address when registering your sensor. Please <u>contact us</u> and we’ll ensure your details get corrected.</p>
+    
+    <h3><b>Q: What do the following registration email responses mean?</b></h3>
+    <p>A: If the Subject line contains “Not Found”: The Owner’s Email you’ve entered does not match what we have on file for the sensor. Please enter the Owner’s Email that was used to initially register the device.</p>
+    
+    <p>If the Subject line contains “Offline”: The sensor has not successfully connected to the WiFi network. More information on configuring a sensor to WiFi can be found <u>here</u>.</p>
+    
+    <p>If the Subject line contains “Failed Challenge”: Either the Device-ID or Associated Email you’ve entered is incorrect. Please try again or <u>contact us</u>.</p>
+    
+    <p>If the Subject line contains “Online”: The sensor was registered successfully, and is online and reporting to the <u>PurpleAir map</u>.</p>
+    
+    <h3><b>Q: How soon after registering my sensor will I see it on the PurpleAir map?</b></h3>
+    <p>A: Once you have completed the <u>registration</u> form, you will see your sensor’s marker on the map within a few minutes. If your sensor is connected to WiFi and able to report data, you should see a colored map marker. </p>
+    <p>Please note: To view private sensors on the <u>PurpleAir map</u>, you must use the link provided in the registration confirmation email, or be logged in to the map.</p>
+    
+    <h3>Q: How do I use the Search box on the PurpleAir map?</h3>
+    <p>A: In the search box in the top left corner of our PurpleAir map, you can search by an address, the name of a city or town, or even a zip code and it will zoom in on that area! You can also search by the specific name of a sensor. </p>
+    
+    <p>From there you can create a bookmark in your web browser using that URL, enabling you to click it to see that particular view at any time without searching the map. Adding that same view to the home screen of your phone or tablet creates an app-type icon; this provides another way to stay informed of sensor readings in spaces that impact or interest you. (Click <u>here</u> for a quick how-to.)</p>
+    
+    <h3>Q: How do I see my own sensor on the map?</h3>
+    <p>A: You are not required to log in to the map to see your sensor(s). You can easily see your sensor by using the "visible on the map" link in your registration confirmation email. From there you can create a bookmark in your web browser using that URL, enabling you to click it to see your sensor(s) at any time without searching the map.</p>
+    
+    <p>However, if you wish to utilize the “Show My Sensors" feature, you would need to first register your sensor using a gmail account as the Owner’s Email. Then, in the top right corner of the PurpleAir map you’ll log in using that same gmail address. After this, simply uncheck “Outside Sensors” and “Inside Sensors” while keeping ​"Show My Sensors" checked in the map legend. This will enable you to view only your sensors on the map. (If you need to update the Owner's Email, <u>contact us here</u>.)</p>
+    
+    <h3>Q: <b>Can I view my sensor outside of the PurpleAir map?</b></h3>
+    <p>A: To view your sensor without using the <u>PurpleAir map</u>, the device you’re using (i.e. phone or computer) will need to be connected to the same WiFi network that your sensor is on. You can then use one of these methods to see your sensor interface: </p>
+    
+    <ol><li>Enter the sensor's hostname, <a href="http://PurpleAir-" rel="nofollow">http://PurpleAir-</a>****, into the web address bar on any web browser (the **** is the last 2-4 digits/letters of your sensor’s device-ID, and can be found in your registration email as well as on the sensor itself).</li>
+    <li>Look up the IP address assigned to the sensor on your router, and enter the IP address into the web address bar on any web browser. </li></ol>
+    
+    <p>*A note about the IP address: Your router may change the sensor's IP address from time to time, so you would need to look up the new IP address if/when this has occurred, or assign a permanent IP address to the sensor on your router.</p>
+    
+    <h3>Q: Does Purpleair have an app?</h3>
+    <p>A: PurpleAir does not currently have an app, but there are a handful of apps available that can display PurpleAir data: Air Pollution, Local Haze, AirVisual, and AQCheck. You would need to set up an account with AQCheck to view your data on the app. To view your sensor on AirVisual’s app, you’d need to send them a request to add a sensor to their map. </p>
+    
+    <p>If there are certain sensors you monitor regularly, such as those in your neighborhood or areas in which you exercise, another option is to create a bookmark in your web browser that pulls up that particular map view automatically. Adding that same view to the home screen of your phone or tablet creates an app-type icon; this provides another way to stay informed of sensor readings in spaces that impact or interest you. (Click <u>here</u> for a quick how-to.)</p>
+    
+    <p>Weather Underground also gives you the option to share your sensor data with them. The data is sent to their air quality reporting and forecasting system, which is separate from their PWS (Personal Weather Station) system. They do have a PM2.5 and PM10 layer on <u>this</u> map, although I’m unsure as to whether that is visible on their mobile app. </p>
+    
+    <p>That said, we know how beneficial an app would be, and we plan to incorporate this feature in the future.</p>
+    
+    <h3>Q: Can I move my sensor?</h3>
+    <p>A: Yes! Before moving the sensor to a new location or location type (inside/outside), the data gathered to date will need to be archived to the physical location, and the sensor will be reset to gather fresh data in the new location. Please <u>contact us</u> here with your information before moving your sensor - we will respond once we’ve archived your sensor and it’s ready for moving and registration resubmission.</p>
+    
+    <h3><b>Q: How do I view a private sensor on the PurpleAir map?</b></h3>
+    <p>A: If logged in to the <u>PurpleAir map</u> and connected to our servers, you’re able to view the graphs and your sensor from anywhere. You also have access to your sensor’s data, allowing you to download historical information. If you registered your sensor as private, there are two ways to view your private sensor on the <u>PurpleAir map</u>:</p>
+    
+    <p>1. You can use the "view it here" link provided in the registration confirmation email sent to the Associated Email and Owner's Email indicated on the <u>registration</u> form. This link can be bookmarked or shared with others that you would like to see your private sensor, too.</p>
+    
+    <p>2. You can log in to www.purpleair.com/map in the top right corner of the <u>PurpleAir map</u>. At this time you can only log in with a Google account. This means the Owner's Email must be set to a Google account. If you need to update the Owner's Email, please <u>contact us</u>.</p>
+    
+    <h3>Q: What do the conversion factors mean on the PurpleAir map?</h3>
+    <p>A: While we’re unable to say what factor would be best for a particular scenario and cannot make health recommendations, we’re glad to provide more information to help users better understand this option on the map.</p>
+    
+    <p>We’ll start with why the conversion factors were created. Our PurpleAir sensors measure particulate matter (PM). Particulate matter is used to describe a mixture of inhalable particles - solid and liquid - suspended in the air and is grouped by size, such as PM2.5 and PM10. (The number refers to the diameter of the particle in microns.) These airborne particles can originate from dust, smoke, and other organic and inorganic sources. However, particles from these sources can be the same size but have different densities. For instance, PM2.5 from wildfire smoke will have a different density than PM2.5 from dust blowing off a gravel pit.</p>
+    
+    <p>Secondly, PurpleAir sensors use laser particle counters that measure the particle count, before converting that count into a mass concentration. The purpose of this is to make it comparable to data reported by regulatory sensors. To do this, the laser counters must assume an average particle density. An average density must be used because, as mentioned above, not all particulate matter of a certain size has the same density. For example, if you weighed 1000 particles of wildfire smoke and 1000 particles generated from gravel dust, the wildfire smoke would be much lighter. In the case where the predominant source of PM2.5 is from wildfire smoke that has a lighter density than the assumed density used by the sensor, the sensor data will predictably overestimate the mass concentration and read higher than the regulatory monitor. Similarly, if the predominant source of PM2.5 was a more dense material like gravel dust, the sensor data would predictably underestimate the mass concentration and read lower than the regulatory monitors (such as those used to report to AirNow.gov, Weather Underground, etc.).</p>
+    
+    <p>According to <u>this</u> recent study published by researchers in Australia, the AQ&U conversion factor has proven very effective in conditions involving wood smoke as a major pollution source. The LRAPA conversion factor is very effective as well; it was developed by Oregon’s Lane Regional Air Protection Agency for their particular area during a smoke event caused by wildfires. </p>
+    
+    <p>Additionally, the EPA has developed their own conversion factor for wildfire and woodsmoke conditions. (The study they used to create this factor can be viewed <u>here</u>.) On the PurpleAir map, each sensor’s map marker can only display real-time data with the EPA conversion factor applied. On the sensor’s graph window, however, you can view the data for a variety of averaging times using the EPA conversion factor. AirNow’s <u>Fire and Smoke Map</u> has a similar factor applied to its data.</p>
+    
+    <h2>WIFI CONFIGURATION & INSTALLATION</h2>
+    
+    <h3>Q: How can I configure my sensor to WiFi?</h3>
+    <p>A: For step-by-step instructions on how to configure your sensor to WiFi, please click <u>here</u>.</p>
+    
+    <h3>Q: What if I don’t see a<b> pop-up window after selecting the </b>“<b>PurpleAir-****</b>” network?</h3>
+    <p>A: If the pop-up window does not “pop up,” you may have a pop-up blocker enabled on your web browser. You could temporarily disable this to configure your PurpleAir sensor.</p>
+    
+    <p>After making sure you're connected to the PurpleAir network and waiting a bit, if you still don't get the pop-up window, try opening a web browser and loading a webpage. If you are indeed connected to the PurpleAir network, this will load the sensor interface with the WiFi settings for the sensor. And this has held up more than one user trying to configure their sensor: be sure to use the same device when connecting to the PurpleAir network and going to the web browser.</p>
+    
+    <p>Another option is to open a webpage and in the address bar, enter the default IP address for the sensor: <u>HTTP://192.168.4.1</u>. If all else fails, try configuring the WiFi with the router, computer, and sensor in the same room. Once placed farther away, they should work fine. If you are unable to configure your sensor via one of these methods, please <u>contact us</u>.</p>
+    
+    <h3>Q: What does it mean if my sensor’s map marker is gray?</h3>
+    <p>A: A gray map marker represents a sensor that is registered but not currently sending data. This typically happens when the sensor is either not connected to WiFi or not connected to power. If you have confirmed there is power to your sensor - look for the red glow inside the sensor housing, or for indoor sensors, make sure the device itself is glowing - and the map marker remains gray, check your available WiFi networks and see if the PurpleAir-**** network is available. If so, you may need to reconnect to WiFi.</p>
+    
+    <h3><b>Q: </b>Can I reset<b> the WiFi network connection?</b></h3>
+    <p>A: If the sensor is already configured to a WiFi network, you will need to either take the sensor out of range or turn that network off. After about 10 minutes of being disconnected from that WiFi network (because it is out of range or turned off), the sensor will broadcast its own network again. Once you see the sensor's network in the list of available WiFi networks on your phone, tablet, or computer, connect to this network and configure the sensor to another WiFi network (or a "dummy network") by selecting a network and intentionally entering an invalid password. </p>
+    
+    <p>Another option is to look up the IP Address assigned to the sensor by the router. When connected to the WiFi network, you can enter the assigned IP Address in the web address bar of any web browser to navigate to the sensor's interface - here you can update the WiFi Settings on the sensor. Depending on your router, you may also be able to look up the sensor by the hostname.</p>
+    
+    <h3>Q: Is it possible to stop my sensor from broadcasting its WiFi network?</h3>
+    <p>A: No - until your sensor is configured to a WiFi network, your sensor will continue to broadcast its own network, “PurpleAir-****”.</p>
+    
+    <h3>Q: How do I install my sensor?</h3>
+    <p>A: For tips and information regarding sensor installation, click <u>here</u> to visit our Install page (the installation information is near the bottom).</p>
+    
+    <h3>Q: <b>Can I use a PA-I-Indoor</b> sensor outside<b>?</b></h3>
+    <p>A: We do not recommend using the PA-I-Indoor outside, even if under a covered porch, for the following reasons:</p>
+    <ul class="small"><li>The PA-I-Indoor power supply is not outdoor rated like the PA-II's</li></ul>
+    <li>The sensor housing on the PA-II is weatherproof, while the PA-I-Indoor housing is not</li>
+    <li>The PA-I-Indoor sensor's single laser counter leaves it more vulnerable to insects, spiders, etc. while the PA-II's dual laser counters exist so the two channels can be compared; this enables users to tell if one laser counter is being affected by any foreign objects that may throw off that channel’s reading.</li></ul>
+    
+    <h2>SENSOR PERFORMANCE AND MAINTENANCE</h2>
+    
+    <h3>Q: Can PurpleAir sensors be calibrated?</h3>
+    <p>A: The laser counters used in PurpleAir sensors come factory calibrated. It is not possible to calibrate the laser counters post-production. More information on the laser counters can be found in the <u>manual</u>.</p>
+    
+    <h3><b>Q: How can I tell if my sensor readings are in agreement?</b></h3>
+    <p>A: All PA-II edition sensors contain two identical laser counters, Channel A and Channel B, which makes it possible to determine if the sensor is performing properly. On the <u>PurpleAir map</u>, when viewing your sensor’s graph you’ll notice three options at the graph’s base: Average, Channel A, and Channel B. Click on Average, which will gray it out, and make sure Channels A and B are selected/bold. You can hover over each of your channel’s readings on the graph - if the two lines are very close together, showing good correlation between the channels, your readings are in agreement.</p>
+    
+    <h3><b>Q: How can I tell if my sensor is not performing properly?</b></h3>
+    <p>A: If there is a problem with one or both laser counters, when viewing each channel’s reading on your graph you will see a disagreement between the two channels. Assuming your sensor has a large dynamic range, meaning your readings cover a wide range of highs and lows, another indicator will be a low Confidence percentage in the bottom left corner of the map marker pop-up window.</p>
+    
+    <h3>Q: Can my sensor readings be affected by ultrasonic humidifiers?</h3>
+    <p>A: Some ultrasonic humidifiers can affect your sensor readings - and ultimately your air quality - by emitting particles that are measured by the sensor. This will occur if the humidifier’s reservoir is filled with tap water rather than distilled water, as basic tap water contains various minerals and impurities, or if the reservoir and water are dirty. There is not a way to correct this because the sensor is measuring actual particles in the air, including those produced by the humidifier. You can read more about this <u>here</u>. </p>
+    
+    <h3><b>Q: What do I do if one of my channels is downgraded, reporting high, not working, or spikes erratically?</b></h3>
+    <p>A: It is possible that some debris, an insect, or spider got into one of the laser counters in your sensor. One option is to clean out the laser counters: place a shop vacuum or traditional vacuum hose on the bottom of the sensor for 2-3 minutes. Another alternative is to try clearing out the laser counter with canned compressed air. Focus on the four vertical holes on each laser counter. However, please keep in mind that compressed air will not always help a sensor that is marginally off, and can potentially make things worse. If these attempts prove unsuccessful, please contact us <u>here</u> about laser counter replacement.</p>
+    
+    <h3>Q: Can I adjust the brightness of the LED light in my PA-I-Indoor sensor?</h3>
+    <p>A: We have the capability to turn the LED off or change the brightness level upon request. We’re working on enabling the user to adjust their own LED settings, but at this time it is not available. Please <u>contact us</u> if you would like us to turn it down or off.</p>
+    
+    <h3>Q: What if my PA-I-Indoor’s LED light stops working?</h3>
+    <p>A: First, try power cycling the sensor by unplugging it and plugging it back in, to see if the light starts working again. If that doesn’t solve the problem, please <u>contact us</u>. </p>
+    
+    <h3><b>Q: What maintenance is required for PurpleAir Sensors?</b></h3>
+    <p>A: We do not recommend a regular cleaning schedule for PurpleAir sensors, and no preventive maintenance is required. If a sensor is working properly and shows no signs of any object or dust obstructing the laser counters, attempting to clean it by using compressed air or a vacuum may be detrimental to the sensor. If one of the laser counters is not reporting as expected, consider employing the techniques listed in the question above. </p>
+    
+    <h3><b>Q: Can I add a mesh screen to my sensor to keep out insects, spiders, and critters?</b></h3>
+    <p>A: We do not recommend covering the base of your sensor with any material. This will impact the air flow and ability for the sensor to properly measure particulate matter.</p>
+    
+    <h2>Miscellaneous</h2>
+    <h3>Q: What does “PurpleAir” mean?</h3>
+    <p>A: According to the EPA’s AQI scale, the unhealthiest of all air quality ratings are purple and maroon. “MaroonAir” doesn’t quite have the same ring to it, don’t you agree?</p>
+    
+    <h3>Q: Is PurpleAir a labor of love?</h3>
+    <p>A: Absolutely. We take air quality very seriously around these parts, and wouldn’t have it any other way.</p>
+    
+    <h3>Q: Purple Air? Purpleair? PurpleHair?</h3>
+    <p>A: No, no, and no! It’s PurpleAir, all one word with the P and A capitalized. But we do have an employee with hair the loveliest shade of purple. (It isn’t a job requirement.) </p>
+    
+    
+    
+    
+    
 
-<div id="registration">
-  <h2>Registration</h2>
-  <h3>Q: What’s the difference between the Associated Email and the Owner’s Email?</h3>
-  <p>A: The Associated Email is the email address used by the buyer to complete the purchase of the sensor and is used as a reference. </p>
-  <p>This email address is paired with the MAC address of all sensors bought in the same transaction, and must be used as the Associated Email to register the sensor. You may use any email address as the Owner's Email address. When registering an email will be sent to both email addresses with the registration details.</p>
-
-  <h3>Q: How Do I Register my Sensor?</h3>
-  <p>A: Registering your sensor places a map marker on the PurpleAir map. You will only need to do this once. If you would like to change any registration details, please complete the registration form again. You will need to use the same "Owner's Email" that was used in the first registration to make changes.</p>
-
-  <ul>
-    <li>Go to <a href="www.purpleair.com/register">www.purpleair.com/register.</a></li>
-    <li>Enter the sensor's Device-ID exactly as printed on the sensor's label.</li>
-    <li>Enter the associated email address, which is usually the email that was used to purchase the sensor. If you do not know the correct email address, please <a href="https://www2.purpleair.com/pages/contact-us">contact us</a> for help or to associate a new email address. PurpleAir will need the Device-ID in order to help you.</li>
-    <li>Complete the rest of the <a href="https://www.purpleair.com/register">registration form.</a> For additional help, you can view a full explanation of <a href="https://www2.purpleair.com/community/faq#!hc-register-a-purpleair-sensor-to-the-purpleair-map">registration fields</a> or read our registration tips below.</li>
-    <li>Click register and look for a green "successful registration" notice. A registration confirmation email is sent to the Associated Email and Owner's Email. This email includes a link to view your sensor on the <a href="https://www.purpleair.com/map?opt=1/mAQI/a10/cC0#1/9.6/-30">PurpleAir map.</a></li>
-  </ul>
-
-  <h3>Q: What is the difference between a public and a private sensor?</h3>
-  <p>A: When registering a sensor, you have the choice of making it either public or private. If you choose to make your sensor public, anyone can view your sensor on the PurpleAir map.</p>
-  <p>If you register your device as private, only you (and those with whom you share the link provided in the registration email) will be able to see your sensor on our map.</p>
-</div>
-
-<div id="configuration">
-  <h2>Wifi Configuration</h2>
-  <h3>Q: How can I configure my sensor to WiFi?</h3>
-  <p>NOTE:The WiFi configuration process is the same for all PurpleAir sensors!</p>
-
-  <ul>
-    <li>It’s best to configure your sensor to WiFi with the router, computer/phone/tablet, and sensor in the same room. After plugging in your device and confirming it is receiving power (look for the dim red glow inside the sensor housing, or for indoor sensors, make sure the device itself is glowing), on a WiFi-enabled device, open the list of available WiFi networks.</li>
-    <li>Connect to the sensor's network, PurpleAir-****. The **** is a 2-4 character code determined by your sensor. (It may take up to up to 10 minutes after the sensor is plugged in for this network to appear.)</li>
-    <li>Depending on your operating system or device, you may get a pop-up window or a message to sign in to the network. If you receive a message to sign in to the network, press it to make the pop-up window appear. The pop-up window will list all available WiFi networks.</li>
-    <li>Note: If the pop-up window does not appear, after making sure you've selected the "PurpleAir-****" network and waiting a bit, if you still don't get the pop-up, try opening a web browser and loading a webpage. If you are indeed connected to the PurpleAir network, this will load the sensor interface with the WiFi settings for the sensor. Another option is to open a webpage and in the address bar, enter the default IP address for the sensor: http://192.168.4.1/config.</li>
-    <li>Choose the WiFi network you would like the sensor to connect to, enter the password for that network, and click Save. A hidden WiFi network can be entered by selecting the option at the bottom of the list.</li>
-    <li>The WiFi status bar will turn green once your PurpleAir sensor is connected to WiFi and transmitting data. Once your device is configured to your local WiFi network, it will no longer appear in the list of available networks - the fact that it has disappeared means that the sensor is successfully configured to WiFi.</li>
-  </ul>
-</div>
 
 
 
-
-
-
-<script>
-$(document).ready(function() {
-	$("h1, h2, h3, h4, h5, h5").each(function(i) {
-	 var heading = $(this);
-	 var headingtext = heading.text();
-	 console.log(headingtext);
-	 var headingtextAnchor = headingtext.toLowerCase().trim().replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g,"").replace(/q /,"").replace(/ /g,"-");
-	 console.log(headingtextAnchor);
-	 heading.attr("id",headingtextAnchor );
-	 var link = $("<a>");
-     link.attr("href", "#" + headingtextAnchor);
-     link.attr("title", headingtext);
-     link.text(headingtext);
-     link.addClass("link");
-
-     if (headingtext.trim() == "") {
-         //remove h3 with no content
-         heading.remove();
-     } else {
-         heading.html(link);
-     }
-     
-	 
-	 });
-	});
-</script>
 
 
 
