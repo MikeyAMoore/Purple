@@ -1,0 +1,50 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>FAQ - PurpleAir.com</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+  <body>
+  
+<h1>FAQ</h1>
+<h2>About PurpleAir</h2>
+<h3>Q: How do PurpleAir sensors work, and what do they measure?</h3>
+<p>A: PurpleAir sensors measure airborne particulate matter (PM). Particulate matter describes solid particles suspended in air; this includes dust, smoke, and other organic and inorganic particles. PurpleAir sensors use laser particle counters to count the number of particles by particle sizes 0.3, 0.5, 1, 2.5, 5, and 10 &mu;m, and use the count data to calculate mass concentrations of PM1.0, PM2.5, and PM10.</p>
+<p>PurpleAir sensors use laser counters to measure particulate matter in real time. A laser counter uses a fan to draw a sample of air past a laser beam. Any particles in the air will reflect some light from the laser beam onto a detection plate, like dust shimmering in a sunbeam. The reflection is measured as a pulse by the detection plate, and the length of the pulse determines the size of the particle while the number of pulses determines the particle count. These particle counts are used to calculate the mass concentrations of PM1.0, PM2.5, and PM10 for standard indoor (CF_1) and outdoor particles.</p>
+
+
+<script>
+$(document).ready(function() {
+	$("h1, h2, h3, h4, h5, h5").each(function(i) {
+	 var heading = $(this);
+	 var headingtext = heading.text();
+	 console.log(headingtext);
+	 var headingtextAnchor = headingtext.toLowerCase().trim().replace(/[\.,-\/#!?$%\^&\*;:{}=\-_`~()]/g,"").replace(/q /,"").replace(/ /g,"-");
+	 console.log(headingtextAnchor);
+	 heading.attr("id",headingtextAnchor );
+	 var link = $("<a>");
+     link.attr("href", "#" + headingtextAnchor);
+     link.attr("title", headingtext);
+     link.text(headingtext);
+     link.addClass("link");
+
+     if (headingtext.trim() == "") {
+         //remove h3 with no content
+         heading.remove();
+     } else {
+         heading.html(link);
+     }
+     
+	 
+	 });
+	});
+</script>
+
+
+
+
+
+
+</body></html>
