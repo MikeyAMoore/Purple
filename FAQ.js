@@ -1,5 +1,7 @@
 
 $(document).ready(function() {
+    //alert('hi');
+    var toc = $("<ul/>");
 	$("h1, h2, h3, h4, h5, h5").each(function(i) {
 	 var heading = $(this);
 	 var headingtext = heading.text();
@@ -12,6 +14,10 @@ $(document).ready(function() {
      link.attr("title", headingtext);
      link.text(headingtext);
      link.addClass("link");
+     
+     var tocItem = $("<li/>");
+     tocItem.text(headingtext);
+     $(tocItem).appendTo(toc)
 
      if (headingtext.trim() == "") {
          //remove h3 with no content
@@ -19,7 +25,9 @@ $(document).ready(function() {
      } else {
          heading.html(link);
      }
-     
 	 
 	 });
+     console.log($("#toc_container"));
+     console.log(toc);
+     $("#toc_container").html(toc);
 	});
